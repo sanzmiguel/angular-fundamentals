@@ -1,4 +1,11 @@
 <div class="row" *ngFor="let session of visibleSessions">
+  <div class="col-md-1" *ngIf="authService.isAuthenticated()">
+    <events-upvote
+      (vote)="toggleVote(session)"
+      [count]="session.voters.length"
+      [voted]="userHasVoted(session)">
+    </events-upvote>
+  </div>
   <div class="col-md-10">
     <events-collapsible-well>
       <div well-title>

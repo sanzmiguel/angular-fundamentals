@@ -12,7 +12,10 @@ import {
   CreateEventComponent,
   CreateSessionComponent,
   SessionListComponent,
-  DurationPipe
+  DurationPipe,
+  UpvoteComponent,
+  VoterService,
+  LocationValidatorDirective
 } from './events/index';
 import { NavBarComponent } from './nav/navbar.component';
 import { RouterModule } from '@angular/router';
@@ -52,7 +55,9 @@ const jQuery = window['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent,
+    LocationValidatorDirective
   ],
   providers: [
     EventService,
@@ -61,7 +66,8 @@ const jQuery = window['$'];
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventListResolver,
     AuthService,
-    { provide: JQ_TOKEN, useValue: jQuery }
+    { provide: JQ_TOKEN, useValue: jQuery },
+    VoterService
   ],
   bootstrap: [EventsAppComponent]
 })
